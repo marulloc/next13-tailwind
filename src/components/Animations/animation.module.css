@@ -1,0 +1,62 @@
+@keyframes moveToRight {
+    from {
+        color: red;
+    }
+    to {
+        color: blue;
+        transform: translateX(300px);
+    }
+}
+/* @keyframes
+ * 애니메이션 중간 지점의 값을 설정하여 보다 세밀하게 중간 동작들을 제어
+ * 애니메이션과 매칭시킬 animation-name 소ㅓㄱ성에서 사용할 이름으로 생성
+ * 키프레임의 스타일 정보를 포함하고 있는 지점에서 사용할 %로 구성
+ */
+
+@keyframes move {
+    from {
+        transform: translateY(300px);
+    }
+    50% {
+        transform: translateX(300px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+/* 현재 위치에서 움직이는 것이 아니라, 원래 있어야 하는 위치,상태 기준이다. */
+
+.move-right {
+    color: black;
+
+    animation-name: move;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    /* animation-fill-mode
+     * none 끝나면 원래상태로 돌아옴 (애니메이션 시작하기 전에 기본값)
+     * backwards 애니메이션 끝나면 첫 상태로 돌아오는데, 재생되지 않을때도 애니메이션 시작값을 유지
+     * forwards 애니메이션 끝나면 마지막 상태값에서 종료
+     * both 처음 시작할때 애니메이션 값, 끝났을때도 애니메이션 종료값으로 유지
+     */
+}
+
+/*
+-   animation-delay : 로드 이후 언제 시작할 것인지
+-   animation-direction : (종료 후) 정방향/역방향 진행
+-   animation-duration : 어느 시간동안에 걸쳐 진행될지
+-   animation-iteration-count : 몇 번 반복될지 (infinite: 무한)
+-   animation-name : 중간 상태를 지정
+-   animation-play-state : 멈춤/재생 상태 지정
+-   animation-timing-function : 어떤 시간간격으로 진행할지
+-   animation-fill-mode : 시작 전/애니메이션 종료 후 스타일
+*/
+
+.my-transform {
+    /* transform: translateX(300px); */
+    /* transform: translateY(300px); */
+    /* transform: scale(1.5); */
+    /* transform: rotate(180deg); */
+    transform: skew(15deg, 15deg);
+}

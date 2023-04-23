@@ -1,9 +1,15 @@
+import MoveToRight from '@/components/Animations/MoveToRight';
+
 const UIPage = () => {
     return (
-        <div className="h-screen bg-black  ">
+        <div className="h-screen  ">
             <BoxWidth />
 
             <ColorEx />
+
+            <MoveToRight>
+                <button className=" bg-cyan-200 p-1 rounded-lg ">asdasd</button>
+            </MoveToRight>
         </div>
     );
 };

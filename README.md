@@ -128,3 +128,32 @@ SVG는 Scalable Vector Graphics의 약자로
 그렇다면 우리는 Raster를 왜 사용하는가?
 복잡하고 해상도가 높은 고품질의 이미지를 구성할때는 픽셀로 구성된 Raster 형태가 맞다.
 Vector 그래픽은 단순하지만 깨지면 좋지 않은 이미지(로고, 아이콘)등을 구현할 때 주로 사용된다.
+
+### CSS Animation
+
+애니메이션은 스타일 전환을 부드럽게 만들어주는 속성이다.
+중간중간 변화하는 상태를 정의해서 다채로운 애니메이션을 만들 수 있게해주는 속성이다.
+브라우저 화면에 노출되지 않는 요소에 대한 애니메이션 타이밍을 조절 하는 최적화에도 좋다
+
+-   animation-delay : 로드 이후 언제 시작할 것인지
+-   animation-direction : (종료 후) 정방향/역방향 진행
+-   animation-duration : 어느 시간동안에 걸쳐 진행될지
+-   animation-iteration-count : 몇 번 반복될지 (inifite: 무한)
+-   animation-name : 중간 상태를 지정
+-   animation-play-state : 멈춤/재생 상태 지정
+-   animation-timing-function : 어떤 시간간격으로 진행할지
+-   animation-fill-mode : 시작 전/애니메이션 종료 후 스타일
+
+### CSS transform
+
+요소를 변환시키는 용도로 사용하는 속성이다.
+보통 이렇게 크게 4가지로 분류한다
+
+-   translate : 이동
+-   scale : 확대, 축소
+-   rotate : 회전
+-   skew : 기울임
+
+#### matrix 는 모든 메소드를 한번에 적용한다
+
+-   matrix (scaleX, skewY, skewX, scaleY, translateX, translateY)
