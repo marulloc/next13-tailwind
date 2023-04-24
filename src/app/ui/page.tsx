@@ -1,8 +1,9 @@
+import Wiggle from '@/components/Animations/Wiggle';
 import MoveToRight from '@/components/Animations/MoveToRight';
 
 const UIPage = () => {
     return (
-        <div className="h-screen  ">
+        <div className=" relative h-screen  ">
             <BoxWidth />
 
             <ColorEx />
@@ -10,6 +11,26 @@ const UIPage = () => {
             <MoveToRight>
                 <button className=" bg-cyan-200 p-1 rounded-lg ">asdasd</button>
             </MoveToRight>
+
+            <div className="flex justify-center  ">
+                <Wiggle direction="left">
+                    <div className="p-4  rounded-sm shadow-lg bg-cyan-200   ">asdasd</div>
+                </Wiggle>
+            </div>
+            <div className="flex justify-center  ">
+                <Wiggle direction="right">
+                    <div className="p-4  rounded-sm shadow-lg bg-red-200   ">asdasd</div>
+                </Wiggle>
+            </div>
+
+            <br />
+
+            <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75">
+                    asd
+                </span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+            </span>
         </div>
     );
 };

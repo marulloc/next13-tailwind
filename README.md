@@ -142,6 +142,7 @@ Vector 그래픽은 단순하지만 깨지면 좋지 않은 이미지(로고, �
 -   animation-name : 중간 상태를 지정
 -   animation-play-state : 멈춤/재생 상태 지정
 -   animation-timing-function : 어떤 시간간격으로 진행할지
+    -   cubic-bezier(p1X,p1Y, p2X, p2Y)
 -   animation-fill-mode : 시작 전/애니메이션 종료 후 스타일
 
 ### CSS transform
@@ -149,11 +150,21 @@ Vector 그래픽은 단순하지만 깨지면 좋지 않은 이미지(로고, �
 요소를 변환시키는 용도로 사용하는 속성이다.
 보통 이렇게 크게 4가지로 분류한다
 
--   translate : 이동
--   scale : 확대, 축소
+-   translate : 이동 (translateX, translateY)
+-   scale : 확대, 축소 (scaleX scaleY)
 -   rotate : 회전
 -   skew : 기울임
 
 #### matrix 는 모든 메소드를 한번에 적용한다
 
 -   matrix (scaleX, skewY, skewX, scaleY, translateX, translateY)
+
+#### transfrom 기준 관련한 속성
+
+-   transform-box
+-   transform-origin
+
+### Parallax Scrolling
+
+-   레이어별 스크롤 속도를 다르게하여 입체감을 주는 디자인 기법
+-
