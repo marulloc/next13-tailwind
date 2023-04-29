@@ -7,6 +7,28 @@ module.exports = {
     ],
     theme: {
         extend: {
+            textColor: {
+                marulloc: {
+                    base: 'var(--color-text-base)',
+                    muted: 'var(--color-text-muted)',
+                    inverted: 'var(--color-text-inverted)',
+                },
+            },
+            backgroundColor: {
+                marulloc: {
+                    fill: 'var(--color-fill)',
+                    'button-accent': 'var(--color-button-accent)',
+                    'button-accent-hover': 'var(--color-button-accent-hover)',
+                    'button-accent-muted': 'var(--color-button-muted)',
+                },
+            },
+
+            gradientColorStops: {
+                marulloc: {
+                    hue: 'var(--color-fill)',
+                },
+            },
+
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
