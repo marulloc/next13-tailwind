@@ -1,4 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
+const composeOpacity = (cssVarName) => {
+    return ({ opacityValue }) => {
+        if (opacityValue !== undefined) {
+            return `rgba(var(${cssVarName}),${opacityValue})`;
+        } else {
+            return `rgb(var(${cssVarName}))`;
+        }
+    };
+};
+
 module.exports = {
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -9,33 +20,35 @@ module.exports = {
         extend: {
             textColor: {
                 marulloc: {
-                    base: 'var(--color-text-base)',
-                    muted: 'var(--color-text-muted)',
-                    inverted: 'var(--color-text-inverted)',
+                    base: composeOpacity('--color-text-base'),
+                    muted: composeOpacity('--color-text-muted'),
+                    inverted: composeOpacity('--color-text-inverted'),
                 },
             },
             backgroundColor: {
                 marulloc: {
-                    fill: 'var(--color-fill)',
-                    'button-accent': 'var(--color-button-accent)',
-                    'button-accent-hover': 'var(--color-button-accent-hover)',
+                    fill: composeOpacity('--color-fill'),
+                    'button-accent': composeOpacity('--color-button-accent'),
+                    'button-accent-hover': composeOpacity('--color-button-accent-hover'),
                     // [1] 'button-accent-muted': 'var(--color-button-muted)', 이러면 --tw-bg-opacity가 동작하지 않음
                     // [2] 'button-accent-muted': `rgba(var(--color-button-muted), opacity)`,
                     // [2-1] tailwind가 내부적으로 사용하는 opacity value와 composing 해야한다.
                     // [2-2] 내부적으로 사용하는 value에 접근하기 위해서 함수로 작성한다.
-                    'button-accent-muted': ({ opacityValue }) => {
-                        // `rgba(var(--color-button-muted), ${opacityValue})`
-                        // rgba를 사용하기 위해서 css 변수도 헥사코드가 아닌 rgb로 값을 가지고 있어야한다.
-                        if (opacityValue !== undefined)
-                            return `rgba(var(--color-button-muted), ${opacityValue})`;
-                        else return `rgb(var(--color-button-muted))`;
-                    },
+                    // 'button-accent-muted': ({ opacityValue }) => {
+                    //     // `rgba(var(--color-button-muted), ${opacityValue})`
+                    //     // rgba를 사용하기 위해서 css 변수도 헥사코드가 아닌 rgb로 값을 가지고 있어야한다.
+                    //     if (opacityValue !== undefined)
+                    //         return `rgba(var(--color-button-muted), ${opacityValue})`;
+                    //     else return `rgb(var(--color-button-muted))`;
+                    // },
+                    // [3] 모든 색상 implement 마다 이렇게 쓰긴 귀찮으니 util함수 만들어서 사용
+                    'button-accent-muted': composeOpacity('--color-button-muted'),
                 },
             },
 
             gradientColorStops: {
                 marulloc: {
-                    hue: 'var(--color-fill)',
+                    hue: composeOpacity('--color-fill'),
                 },
             },
 

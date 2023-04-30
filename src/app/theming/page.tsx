@@ -8,7 +8,7 @@ import React from 'react';
 const Theming = () => {
     return (
         <main className="space-y-6 p-5 h-screen ">
-            <article className="relative bg-red-700 max-w-4xl mx-auto overflow-hidden sm:rounded-2xl">
+            {/* <article className="relative bg-red-700 max-w-4xl mx-auto overflow-hidden sm:rounded-2xl">
                 <div className="absolute inset-0 h-full w-full object-cover opacity-30 ">
                     <Image src="/next.svg" alt="next image" fill />
                 </div>
@@ -51,7 +51,7 @@ const Theming = () => {
                         </div>
                     </div>
                 </div>
-            </article>
+            </article> */}
 
             <article className="relative bg-marulloc-fill      max-w-4xl mx-auto overflow-hidden sm:rounded-2xl">
                 <div className="absolute inset-0 h-full w-full object-cover opacity-30 ">
