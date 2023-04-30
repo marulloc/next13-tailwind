@@ -10,7 +10,7 @@
         --color-fill: #4338ca;
         --color-button-accent: #ffffff;
         --color-button-accent-hover: #eef2ff;
-        --color-button-muted: #6366f1;
+        --color-button-muted: 99, 102, 241;
     }
 
     .theme-swiss {
@@ -20,7 +20,7 @@
         --color-fill: #b91c1c;
         --color-button-accent: #ffffff;
         --color-button-accent-hover: #fef2f2;
-        --color-button-muted: #e44444;
+        --color-button-muted: 239, 68, 68;
     }
     .theme-neon {
         --color-text-base: #111802;
@@ -29,7 +29,7 @@
         --color-fill: #b3ff17;
         --color-button-accent: #243403;
         --color-button-accent-hover: #374f05;
-        --color-button-muted: #d4ff7a;
+        --color-button-muted: 212, 255, 122;
     }
 }
 /*

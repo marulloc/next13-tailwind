@@ -133,6 +133,24 @@ const Theming = () => {
                     </div>
                 </div>
             </article>
+
+            {/* 
+                bg 속성에는 --tw-bg-opacity 라는 css 변수가 사용되는데
+                얘가 background의 opacity를 1로 설정해두고 있다.
+                보통의 css에서는 opacity라고 해서 한번에 투명도를 처리하지만
+                tailwind에는 text-opacity와 bg-opacity같이 분리해서 투명도를 처리할 수 있다.
+
+                자 근데 우리가 만든 컬러테마가 있고 그 이후에 우리가
+                opacity를 조정하려고하면 동작하지 않는가 ?
+
+                우리가 implement한 Color에 --tw-bg-opacity라는것을 설정해주지 않았기 때문이다. 
+                왜냐면 tailwind에서 opacity를 처리하는 속성을 자세히보면 
+                결국 --tw-bg-opacity를 조작하는데 
+                우리가 추가한 컬러 속성에는 이 변수가 선언되어 있지 않아서 무시되기 때문이다.
+
+                ?? alpha layer에 대해서 알아보면 될듯 
+            */}
+            <div className="m-6 w-12 h-12 rounded-lg bg-opacity-20  bg-indigo-500">text</div>
         </main>
     );
 };
