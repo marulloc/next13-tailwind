@@ -32,9 +32,10 @@
 
 .image-wrapper {
     position: relative;
-    width: 100vw;
-    height: auto;
-    min-width: 1000px;
-    min-height: 500px;
     overflow: hidden;
+}
+
+.image-box {
+    width: 100vw;
+    min-width: 1000px;
 }

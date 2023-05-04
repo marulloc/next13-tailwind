@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styles from './parallax_draft.module.css';
 import Image from 'next/image';
+import { ParallaxBG } from '@/components/svgs';
 
 const ParallaxDraft = () => {
     const [active, setActive] = useState<string>('btn-1');
@@ -48,10 +49,10 @@ const ParallaxDraft = () => {
             </header>
 
             <div className={styles['image-wrapper']}>
-                {/* <Image fill src={'/parallax.svg'} alt="" /> */}
+                <div className={styles['image-box']}>
+                    <ParallaxBG />
+                </div>
             </div>
-
-            <svg></svg>
         </>
     );
 };
