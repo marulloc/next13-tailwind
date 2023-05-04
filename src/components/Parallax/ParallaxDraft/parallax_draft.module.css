@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 34px;
+    background-color: #04120c;
+    color: #b8e1ee;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    padding: 0px 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.header-buttons:hover {
+    background-color: #127374;
+}
+
+.header-right-buttons {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.active-header-button {
+    background-color: #013a3b;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    min-width: 1000px;
+    min-height: 500px;
+    overflow: hidden;
+}

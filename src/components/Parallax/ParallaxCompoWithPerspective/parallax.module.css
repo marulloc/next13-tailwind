@@ -24,6 +24,7 @@
 }
 
 .parallax-C {
+    top: 500px;
     background-color: blueviolet;
     height: 500px;
     transform: translateZ(-1px);
