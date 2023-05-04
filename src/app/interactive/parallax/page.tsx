@@ -1,3 +1,6 @@
+import ParallaxCompoWithJS from '@/components/Parallax/ParallaxCompoWithJS';
+import ParallaxCompoWithPerspective from '@/components/Parallax/ParallaxCompoWithPerspective';
+
 /**
  * 시간이 아니라 시각차이로 위치에 따른 시각의 차이를 보여주는 기법을 Parallax라고 한다.
  * 예를 들면, 관찰자가 움직이면 멀리있도록 보이게 만든 요소는 느리게 가까이있도록 보이게 만든 요소는 빠르게 보이게 만든느 것인데
@@ -8,7 +11,15 @@
  * @returns
  */
 const Parallax = () => {
-    return <></>;
+    return (
+        <main className="   m-2 space-y-4 ">
+            <h1 className="m-4">Parallax 만들기 연습</h1>
+
+            {/* <ParallaxCompoWithJS /> */}
+
+            <ParallaxCompoWithPerspective />
+        </main>
+    );
 };
 
 export default Parallax;
