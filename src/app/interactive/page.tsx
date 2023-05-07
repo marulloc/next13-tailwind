@@ -1,6 +1,6 @@
 import ParallaxCompoWithJS from '@/components/Parallax/ParallaxCompoWithJS';
 import ParallaxCompoWithPerspective from '@/components/Parallax/ParallaxCompoWithPerspective';
-import ParallaxDraft from '@/components/Parallax/ParallaxDraft';
+import ParallaxBackground from '@/components/Parallax/ParallaxBackground';
 
 /**
  * 시간이 아니라 시각차이로 위치에 따른 시각의 차이를 보여주는 기법을 Parallax라고 한다.
@@ -18,7 +18,7 @@ const Parallax = () => {
             {/* <ParallaxCompoWithJS /> */}
 
             {/* <ParallaxCompoWithPerspective /> */}
-            <ParallaxDraft />
+            <ParallaxBackground />
         </main>
     );
 };
