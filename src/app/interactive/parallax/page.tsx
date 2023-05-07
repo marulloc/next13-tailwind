@@ -15,8 +15,8 @@ const Parallax = () => {
     return (
         <main className=" ">
             {/* <h1 className="m-4">Parallax 만들기 연습</h1> */}
-
             {/* <ParallaxCompoWithJS /> */}
+
             {/* <ParallaxCompoWithPerspective /> */}
             <ParallaxDraft />
         </main>
