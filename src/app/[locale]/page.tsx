@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { getDictionary } from '@/locale';
+import { Locale, getDictionary } from '@/locale';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default async function Home({ params: { locale } }) {
+interface IProps {
+    params: { locale: Locale };
+}
+
+const Home = async ({ params: { locale } }: IProps) => {
     const dict = await getDictionary(locale);
 
     return (
@@ -118,4 +122,6 @@ export default async function Home({ params: { locale } }) {
             </div>
         </main>
     );
-}
+};
+
+export default Home;
