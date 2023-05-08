@@ -1,6 +1,6 @@
 import { NextMiddleware, NextRequest, NextResponse } from 'next/server';
 
-let locales = ['en-US', 'nl-NL', 'nl'];
+let locales = ['en', 'ko'];
 
 const getLocale = (request: NextRequest) => {
     return locales[0];
