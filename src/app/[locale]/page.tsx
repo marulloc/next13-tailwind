@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { getDict } from './dict';
+import { getDictionary } from '@/locale';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default async function Home({ params: { locale } }) {
-    const dict = await getDict(locale);
+    const dict = await getDictionary(locale);
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">

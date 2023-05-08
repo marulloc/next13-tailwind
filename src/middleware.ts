@@ -1,8 +1,9 @@
 import { NextMiddleware, NextRequest, NextResponse } from 'next/server';
+import { getLocale } from './locale';
 
-let locales = ['en', 'ko'];
+const locales = getLocale();
 
-const getLocale = (request: NextRequest) => {
+const localeMatcher = (request: NextRequest) => {
     return locales[0];
 };
 
@@ -17,7 +18,7 @@ export const middleware: NextMiddleware = async (request) => {
     // Redirect if there is no locale
     if (pathnameIsMissingLocale) {
         console.log(pathname);
-        const locale = getLocale(request);
+        const locale = localeMatcher(request);
 
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
