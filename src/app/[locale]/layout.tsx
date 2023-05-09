@@ -1,12 +1,22 @@
 import '../globals.css';
 import { ReactNode } from 'react';
-import { Locale, getLocale } from '@/locale';
+import { Locale, getDictionary, getLocale } from '@/locale';
 import { Metadata } from 'next';
 
 interface IProps {
     children: ReactNode;
     params: { locale: Locale };
 }
+
+const RootLayout = ({ children, params }: IProps) => {
+    return (
+        <html lang={params.locale}>
+            <body>{children}</body>
+        </html>
+    );
+};
+
+export default RootLayout;
 
 /**
  * @see Internalization-https://nextjs.org/docs/app/building-your-application/routing/internationalization
@@ -24,17 +34,6 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata({ params }: Pick<IProps, 'params'>): Promise<Metadata> {
     const { locale } = params;
-    if (locale === 'en') return { title: `Hi, I'm Marulloc - ${locale}` };
-    else if (locale === 'ko') return { title: `안녕하세요, Marulloc 입니다 - ${locale}` };
-    else return {};
+    const dict = await getDictionary(locale);
+    return { title: `${locale}::${dict.introduction.title}` };
 }
-
-const RootLayout = ({ children, params }: IProps) => {
-    return (
-        <html lang={params.locale}>
-            <body>{children}</body>
-        </html>
-    );
-};
-
-export default RootLayout;
