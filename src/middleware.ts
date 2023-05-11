@@ -3,7 +3,7 @@ import { match } from '@formatjs/intl-localematcher';
 import { getLocale } from './locale';
 
 const supportedLocale = getLocale();
-const defaultSupportedLocale = 'en';
+const defaultSupportedLocale = supportedLocale[0];
 
 export const middleware: NextMiddleware = async (request) => {
     if (isInValidLocale(request)) return localeResolver(request);
