@@ -183,3 +183,76 @@ Vector 그래픽은 단순하지만 깨지면 좋지 않은 이미지(로고, �
 
 -   레이어별 스크롤 속도를 다르게하여 입체감을 주는 디자인 기법
 -
+
+## Next Auth
+
+### email provider
+
+NextAuth의 email 로그인을 구현하려면 nodemailer라는 라이브러리도 필요하다
+
+-   nodemailer
+    nodemailer는 Node.js에서 SMTP 프로토콜을 사용하여 이메일을 보낼 수 있도록 도와주는 라이브러리인데
+    템플릿 엔진과도 함께 사용할 수 있다.
+    https://community.nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/
+
+NextAuth v3에서는 nodemailer가 의존성으로 존재했지만
+v4에서는 nodemailer가 의존성에서 빠져서 수동으로 설치해줘야한다.
+
+.env 파일에서 Email_Server 환경 변수에는 SMTP 서버의 호스트 이름 또는 IP 주소를 입력해야 합니다.
+이 변수는 server 속성에 할당되어 sendVerificationRequest 함수에서 사용됩니다.
+
+예를 들어, Gmail SMTP 서버를 사용하는 경우, .env 파일에서 다음과 같이 설정할 수 있습니다:
+
+```js
+EMAIL_SERVER = smtp.gmail.com;
+```
+
+이 경우, server 속성은 smtp.gmail.com로 설정됩니다.
+
+SMTP 서버의 포트 번호와 인증 정보는 server 속성의 객체에 함께 정의될 수 있습니다.
+예를 들어, Gmail SMTP 서버를 사용할 경우, .env 파일에서 다음과 같이 설정할 수 있습니다:
+
+```js
+EMAIL_SERVER = smtp.gmail.com;
+EMAIL_PORT = 465;
+EMAIL_USERNAME = your_gmail_username;
+EMAIL_PASSWORD = your_gmail_password;
+EMAIL_FROM = your_email_address;
+```
+
+위와 같이 .env 파일에서 설정한 환경 변수를 사용하여 EmailProvider를 정의하면 됩니다.
+
+```js
+EmailProvider({
+  server: {
+    host: process.env.EMAIL_SERVER,
+    port: process.env.EMAIL_PORT,
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  },
+  from: process.env.EMAIL_FROM,
+  sendVerificationRequest({
+    identifier: email,
+    url,
+    provider: { server, from },
+  }) {
+    /* your function */
+  },
+}),
+```
+
+구글 SMTP 서버를 사용할 경우 구글 계정의 보안 설정에서 "보안 수준이 낮은 앱의 액세스"를 허용해주어야 합니다.
+이 옵션을 활성화하지 않으면 구글 계정의 보안 기능으로 인해 SMTP 서버 연결이 차단될 수 있습니다.
+
+아래는 구글 계정에서 "보안 수준이 낮은 앱의 액세스" 옵션을 활성화하는 방법입니다.
+
+1. 먼저, 구글 계정에 로그인한 후 아래 링크로 이동합니다.
+   https://myaccount.google.com/security
+2. "보안 수준이 낮은 앱의 액세스" 옵션을 찾아서 클릭합니다.
+3. "보안 수준이 낮은 앱의 액세스"를 "사용"으로 설정합니다.
+4. 변경 사항을 저장합니다.
+   이제 구글 SMTP 서버를 사용할 때 "보안 수준이 낮은 앱의 액세스"가 활성화되어 있다면 SMTP 서버 연결이 가능해집니다.
+
+또한, 구글 SMTP 서버의 기본 포트는 465(SSL) 또는 587(TLS)입니다. 따라서 .env 파일에서 EMAIL_PORT 환경 변수를 설정할 때, SSL 연결을 사용하는 경우에는 465, TLS 연결을 사용하는 경우에는 587을 입력해야 합니다.

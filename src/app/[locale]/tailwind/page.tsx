@@ -1,5 +1,5 @@
-import Wiggle from '@/components/Animations/Wiggle';
-import MoveToRight from '@/components/Animations/MoveToRight';
+import Wiggle from '@/components/animations/Wiggle';
+import MoveToRight from '@/components/animations/MoveToRight';
 
 const UIPage = () => {
     return (

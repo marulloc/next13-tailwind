@@ -2,6 +2,8 @@ import '../globals.css';
 import { ReactNode } from 'react';
 import { Locale, getDictionary, getLocale } from '@/locale';
 import { Metadata } from 'next';
+import NextAuthProvider from '@/components/@providers/NextAuthProvider';
+import SignButton from '@/components/auth/SignButton';
 
 interface IProps {
     children: ReactNode;
@@ -11,7 +13,12 @@ interface IProps {
 const RootLayout = ({ children, params }: IProps) => {
     return (
         <html lang={params.locale}>
-            <body>{children}</body>
+            <body>
+                <NextAuthProvider>
+                    <SignButton />
+                    {children}
+                </NextAuthProvider>
+            </body>
         </html>
     );
 };
