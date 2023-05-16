@@ -256,3 +256,6 @@ EmailProvider({
    이제 구글 SMTP 서버를 사용할 때 "보안 수준이 낮은 앱의 액세스"가 활성화되어 있다면 SMTP 서버 연결이 가능해집니다.
 
 또한, 구글 SMTP 서버의 기본 포트는 465(SSL) 또는 587(TLS)입니다. 따라서 .env 파일에서 EMAIL_PORT 환경 변수를 설정할 때, SSL 연결을 사용하는 경우에는 465, TLS 연결을 사용하는 경우에는 587을 입력해야 합니다.
+
+EMAIL_REQUIRES_ADAPTER_ERROR
+The Email authentication provider can only be used if a database is configured

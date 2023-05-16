@@ -19,3 +19,8 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
+
+//https://www.youtube.com/watch?v=C6eH6zsPgSk
+//https://www.youtube.com/watch?v=tgrvKGPmI04
+
+//https://www.prisma.io/react-server-components
